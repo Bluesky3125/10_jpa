@@ -4,7 +4,12 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class EntityManagerCRUDTest {
     private static EntityManagerFactory entityManagerFactory;
@@ -80,6 +85,23 @@ public class EntityManagerCRUDTest {
 
         try {
             menu.setMenuName(menuNameToChange); // 스냅샷과 다르면 update
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+        }
+    }
+
+    @Test
+    public void 메뉴_삭제_테스트() {
+
+        /* 설명. 지울 대상을 DB로부터 가져와서 엔티티로 객체로 받음 */
+        Menu menuToRemove = entityManager.find(Menu.class, 3);
+
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+
+        try {
+            entityManager.remove(menuToRemove);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();

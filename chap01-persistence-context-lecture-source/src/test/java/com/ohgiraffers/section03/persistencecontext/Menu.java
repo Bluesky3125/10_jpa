@@ -1,4 +1,4 @@
-package com.ohgiraffers.section02.crud;
+package com.ohgiraffers.section03.persistencecontext;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,14 +7,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity(name="section02_menu")
+@Entity(name="section03_menu")
 @Table(name="tbl_menu")
 public class Menu { // 기본 엔티티 명: menu
 
     @Id
     /* 설명. 복합키 설정 방법은 나중에 설명 */
     @Column(name="menu_code")   // resultMap(기본값 snake_case)
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+//    @GeneratedValue(strategy=GenerationType.IDENTITY)
     /* 설명. DBMS에 따라 다른 번호 발생 방식
     *   TABLE: 번호 발생 테이블을 생성하여 번호 관리(거의 대부분 사용 가능)
     *   SEQUENCE: Oracle 같은 곳에서 사용

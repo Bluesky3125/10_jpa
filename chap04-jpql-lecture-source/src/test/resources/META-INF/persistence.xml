@@ -5,13 +5,7 @@
     <persistence-unit name="jpatest">
 
         <!-- 설명. 엔티티는 설정에 따로 추가할 예정 -->
-<!--        <class>com.ohgiraffers.section01.manytoone.MenuAndCategory</class>-->
-<!--        <class>com.ohgiraffers.section01.manytoone.Category</class>-->
-<!--        <class>com.ohgiraffers.section02.onetomany.CategoryAndMenu</class>-->
-<!--        <class>com.ohgiraffers.section02.onetomany.Menu</class>-->
-        <class>com.ohgiraffers.section03.bidirection.Category</class>
-        <class>com.ohgiraffers.section03.bidirection.Menu</class>
-
+        <class>com.ohgiraffers.section01.simple.Menu</class>
 
         <properties>
 
